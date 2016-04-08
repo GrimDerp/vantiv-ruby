@@ -208,7 +208,7 @@ Vantiv.auth(
   payment_account_id: '12345', # retrieved earlier
   amount: 10000, # amount in cents, as an integer
   customer_id: '123',
-  external_id: 'order123'
+  reference_number: 'order123'
 )
 
 ```
@@ -216,7 +216,7 @@ Vantiv.auth(
 Notes:
 
 1. See Tokenizing via eProtect for notes on how to retrieve a payment account id.
-2. Customer ID and Order ID are reference data required for placing authorizations and auth_captures in Vantiv's system. The merchant can choose what reference data to put in here; they only need to exist.
+2. Customer ID and Reference Number are reference data required for placing authorizations and auth_captures in Vantiv's system. The merchant can choose what reference data to put in here; they only need to exist.
 
 ### Authorization Reversals
 

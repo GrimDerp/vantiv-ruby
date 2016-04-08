@@ -29,7 +29,7 @@ describe "directly tokenizing card data" do
         amount: 10000,
         payment_account_id: payment_account_id,
         customer_id: "doesntmatter",
-        order_id: "orderblah"
+        reference_number: "orderblah"
       )
       expect(auth_response.success?).to eq true
     end
@@ -83,7 +83,7 @@ describe "directly tokenizing card data" do
         amount: 10000,
         payment_account_id: payment_account_id,
         customer_id: "doesntmatter",
-        order_id: "orderblah"
+        reference_number: "orderblah"
       )
       expect(auth_response.success?).to eq false
       expect(auth_response.expired_card?).to eq true
@@ -113,7 +113,7 @@ describe "directly tokenizing card data" do
         amount: 10000,
         payment_account_id: payment_account_id,
         customer_id: "doesntmatter",
-        order_id: "orderblah"
+        reference_number: "orderblah"
       )
       expect(auth_response.success?).to eq false
       expect(auth_response.invalid_account_number?).to eq true

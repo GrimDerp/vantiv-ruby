@@ -8,7 +8,7 @@ describe "auth" do
       amount: 10000,
       payment_account_id: payment_account_id,
       customer_id: customer_external_id,
-      order_id: "SomeOrder123"
+      reference_number: "SomeOrder123"
     )
   end
 

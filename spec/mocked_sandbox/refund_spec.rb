@@ -11,7 +11,7 @@ describe "mocked API requests to refund" do
   end
 
   let(:customer_id) { "customer-#{rand(100)}" }
-  let(:order_id) { "order-#{rand(100)}" }
+  let(:reference_number) { "order-#{rand(100)}" }
   let(:amount) { 10100 }
 
   def run_mocked_response
@@ -19,7 +19,7 @@ describe "mocked API requests to refund" do
     response = Vantiv.refund(
       amount: amount,
       customer_id: customer_id,
-      order_id: order_id,
+      reference_number: reference_number,
       payment_account_id: card.mocked_sandbox_payment_account_id
     )
     Vantiv::MockedSandbox.disable_self_mocked_requests!
@@ -31,7 +31,7 @@ describe "mocked API requests to refund" do
     Vantiv.refund(
       amount: amount,
       customer_id: customer_id,
-      order_id: order_id,
+      reference_number: reference_number,
       payment_account_id: live_sandbox_payment_account_id
     )
   end

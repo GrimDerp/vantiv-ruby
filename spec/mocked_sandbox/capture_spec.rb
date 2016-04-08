@@ -11,7 +11,7 @@ describe "mocked API requests to capture" do
   end
 
   let(:customer_id) { "customer-#{rand(100)}" }
-  let(:order_id) { "order-#{rand(100)}" }
+  let(:reference_number) { "order-#{rand(100)}" }
   let(:amount) { 10100 }
 
   let(:mocked_auth_transaction_id) do
@@ -23,7 +23,7 @@ describe "mocked API requests to capture" do
       amount: amount,
       payment_account_id: live_sandbox_payment_account_id,
       customer_id: customer_id,
-      order_id: order_id
+      reference_number: reference_number
     ).transaction_id
   end
 

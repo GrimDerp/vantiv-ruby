@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe "processing standalone refunds" do
   let(:payment_account_id) { Vantiv::TestAccount.valid_account.payment_account_id }
-  let(:order_id) { "order-#{rand(10000)}" }
+  let(:reference_number) { "order-#{rand(10000)}" }
 
   def run_refund
     Vantiv.refund(
       amount: 10000,
       customer_id: "cust-id-123",
-      order_id: order_id,
+      reference_number: reference_number,
       payment_account_id: payment_account_id
     )
   end

@@ -90,7 +90,7 @@ describe Vantiv::Api::RequestBody do
         amount: 4224,
         customer_id: "extid123",
         payment_account_id: "paymentacct123",
-        order_id: "SomeOrder123"
+        reference_number: "SomeOrder123"
       )
     end
 
@@ -102,12 +102,12 @@ describe Vantiv::Api::RequestBody do
       expect(request_body["PaymentAccount"]["PaymentAccountID"]).to eq "paymentacct123"
     end
 
-    it "casts order id to string" do
+    it "casts reference number to string" do
       body = Vantiv::Api::RequestBody.for_auth_or_sale(
         amount: 4224,
         customer_id: "extid123",
         payment_account_id: "paymentacct123",
-        order_id: 123
+        reference_number: 123
       )
       expect(body["Transaction"]["ReferenceNumber"]).to eq "123"
     end
@@ -118,7 +118,7 @@ describe Vantiv::Api::RequestBody do
       Vantiv::Api::RequestBody.transaction_element(
         amount: @amount,
         customer_id: "some-cust",
-        order_id: "some-order"
+        reference_number: "some-order"
       )
     end
 

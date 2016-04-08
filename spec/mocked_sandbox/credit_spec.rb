@@ -11,7 +11,7 @@ describe "mocked API requests to credit" do
   end
 
   let(:customer_id) { "customer-#{rand(100)}" }
-  let(:order_id) { "order-#{rand(100)}" }
+  let(:reference_number) { "order-#{rand(100)}" }
   let(:amount) { 10100 }
 
   let(:credit_amount) { 1010 }
@@ -24,7 +24,7 @@ describe "mocked API requests to credit" do
       amount: amount,
       payment_account_id: live_sandbox_payment_account_id,
       customer_id: customer_id,
-      order_id: order_id
+      reference_number: reference_number
     ).transaction_id
   end
 

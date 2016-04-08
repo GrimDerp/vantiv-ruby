@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "processing voids" do
   let(:payment_account_id) { Vantiv::TestAccount.valid_account.payment_account_id }
   let(:customer_id) { "customer-#{rand(10000)}" }
-  let(:order_id) { "order-#{rand(10000)}" }
+  let(:reference_number) { "order-#{rand(10000)}" }
 
   def run_void
     Vantiv.void(transaction_id: prior_transaction.transaction_id)
@@ -14,7 +14,7 @@ describe "processing voids" do
       auth = Vantiv.auth(
         amount: 81800,
         customer_id: customer_id,
-        order_id: order_id,
+        reference_number: reference_number,
         payment_account_id: payment_account_id
       )
       Vantiv.capture(transaction_id: auth.transaction_id)
@@ -41,7 +41,7 @@ describe "processing voids" do
       sale = Vantiv.auth_capture(
         amount: 81800,
         customer_id: customer_id,
-        order_id: order_id,
+        reference_number: reference_number,
         payment_account_id: payment_account_id
       )
       Vantiv.credit(transaction_id: sale.transaction_id, amount: 5)
@@ -68,7 +68,7 @@ describe "processing voids" do
       Vantiv.auth_capture(
         amount: 81800,
         customer_id: customer_id,
-        order_id: order_id,
+        reference_number: reference_number,
         payment_account_id: payment_account_id
       )
     end
@@ -94,7 +94,7 @@ describe "processing voids" do
       Vantiv.refund(
         amount: 81800,
         customer_id: customer_id,
-        order_id: order_id,
+        reference_number: reference_number,
         payment_account_id: payment_account_id
       )
     end

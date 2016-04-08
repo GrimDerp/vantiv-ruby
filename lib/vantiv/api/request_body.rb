@@ -1,11 +1,11 @@
 module Vantiv
   module Api
     module RequestBody
-      def self.for_auth_or_sale(amount:, customer_id:, order_id:, payment_account_id:)
+      def self.for_auth_or_sale(amount:, customer_id:, reference_number:, payment_account_id:)
         RequestBodyGenerator.run(
           transaction_element(
             amount: amount,
-            order_id: order_id,
+            reference_number: reference_number,
             customer_id: customer_id
           ),
           payment_account_element(payment_account_id: payment_account_id)
@@ -30,10 +30,10 @@ module Vantiv
         )
       end
 
-      def self.for_return(amount:, customer_id:, order_id:, payment_account_id:)
+      def self.for_return(amount:, customer_id:, reference_number:, payment_account_id:)
         transaction = transaction_element(
           amount: amount,
-          order_id: order_id,
+          reference_number: reference_number,
           customer_id: customer_id
         )
         transaction["Transaction"].delete("PartialApprovedFlag")
@@ -86,10 +86,10 @@ module Vantiv
         res
       end
 
-      def self.transaction_element(amount:, customer_id:, order_id:)
+      def self.transaction_element(amount:, customer_id:, reference_number:)
         {
           "Transaction" => {
-            "ReferenceNumber" => order_id.to_s,
+            "ReferenceNumber" => reference_number.to_s,
             "TransactionAmount" => '%.2f' % (amount / 100.0),
             "OrderSource" => Vantiv.order_source,
             "CustomerID" => customer_id,

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "processing credits (refunds) on prior transactions" do
   let(:payment_account_id) { Vantiv::TestAccount.valid_account.payment_account_id }
   let(:customer_id) { "cust-id-123" }
-  let(:order_id) { "order-#{rand(10000)}" }
+  let(:reference_number) { "order-#{rand(10000)}" }
 
   def run_credit
     Vantiv.credit(
@@ -17,7 +17,7 @@ describe "processing credits (refunds) on prior transactions" do
       auth_response = Vantiv.auth(
         amount: 14100,
         customer_id: customer_id,
-        order_id: order_id,
+        reference_number: reference_number,
         payment_account_id: payment_account_id
       )
       Vantiv.capture(transaction_id: auth_response.transaction_id)
@@ -50,7 +50,7 @@ describe "processing credits (refunds) on prior transactions" do
       Vantiv.auth_capture(
         amount: 14100,
         customer_id: customer_id,
-        order_id: order_id,
+        reference_number: reference_number,
         payment_account_id: payment_account_id
       )
     end

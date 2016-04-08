@@ -12,7 +12,7 @@ describe "mocked API requests to auth" do
   end
 
   let(:customer_id) { "customer-#{rand(100)}" }
-  let(:order_id) { "order-#{rand(100)}" }
+  let(:reference_number) { "order-#{rand(100)}" }
   let(:amount) { 10100 }
 
   def run_mocked_response
@@ -21,7 +21,7 @@ describe "mocked API requests to auth" do
       amount: amount,
       payment_account_id: payment_account_id,
       customer_id: customer_id,
-      order_id: order_id
+      reference_number: reference_number
     )
     Vantiv::MockedSandbox.disable_self_mocked_requests!
     response
@@ -33,7 +33,7 @@ describe "mocked API requests to auth" do
       amount: amount,
       payment_account_id: live_sandbox_payment_account_id,
       customer_id: customer_id,
-      order_id: order_id
+      reference_number: reference_number
     )
   end
 

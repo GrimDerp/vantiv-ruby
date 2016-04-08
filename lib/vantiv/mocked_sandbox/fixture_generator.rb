@@ -50,7 +50,7 @@ module Vantiv
           amount: 10901,
           payment_account_id: card.payment_account_id,
           customer_id: "not-dynamic-cust-id",
-          order_id: "not-dynamic-order-id"
+          reference_number: "not-dynamic-reference-number"
         )
         dynamic_body = DynamicResponseBody.generate(
           body: cert_response.body,
@@ -64,7 +64,7 @@ module Vantiv
           amount: 10901,
           payment_account_id: card.payment_account_id,
           customer_id: "not-dynamic-cust-id",
-          order_id: "not-dynamic-order-id"
+          reference_number: "not-dynamic-order-id"
         )
         dynamic_body = DynamicResponseBody.generate(
           body: cert_response.body,
@@ -78,7 +78,7 @@ module Vantiv
           amount: 10901,
           payment_account_id: card.payment_account_id,
           customer_id: "not-dynamic-cust-id",
-          order_id: "not-dynamic-order-id"
+          reference_number: "not-dynamic-order-id"
         )
         dynamic_body = DynamicResponseBody.generate(
           body: cert_response.body,

@@ -7,7 +7,7 @@ describe "capturing authorizations" do
       amount: 10000,
       payment_account_id: payment_account_id,
       customer_id: "Anything-#{rand(10000)}",
-      order_id: "AnyOrder#{rand(100000)}"
+      reference_number: "AnyOrder#{rand(100000)}"
     ).transaction_id
   end
 
